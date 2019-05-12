@@ -1,0 +1,35 @@
+mixin contacts(data)
+    section.contacts
+        .contacts__inner
+            form.contacts__form
+                .modal__title Complete the form to start your download.
+                .modal__field.modal__field--small
+                    input(type='text', placeholder='First Name*', required)
+                .modal__field.modal__field--small
+                    input(type='text', placeholder='Last Name*', required)
+                .modal__field
+                    input(type='email', placeholder='Email*', required)
+                .modal__field
+                    input(type='text', placeholder='Company/Organization')
+                .modal__field
+                    input(type='text', placeholder='Job Title')
+                .modal__field
+                    textarea(placeholder='Comments')
+                .modal__field.modal__field--s
+                    button.btn(type='submit') SUBMIT
+                .modal__field.modal__field--s.modal__field--vc
+                    span.right *Required field.
+        .contacts__bottom
+            .contacts__info
+                .contacts__i-col
+                    .contacts__i-title Cobalt Robotics
+                    .contacts__i-content
+                        div 2121 South El Camino Real, Suite C110
+                        div San Mateo, California 94403
+                        div United States
+                .contacts__i-col
+                    .contacts__i-title Email
+                    .contacts__i-content
+                        a(href='#') sales@cobaltrobotics.com
+                        a(href='#') media@cobaltrobotics.com
+                        a(href='#') info@cobaltrobotics.com

@@ -1,0 +1,25 @@
+mixin header(data)
+    header.header
+        .header__inner
+            a(href='index.html').header__logo
+                | logo
+            .header__menu
+                .header__menu-close.icon-cross2
+                .header__menu-item.active
+                    a(href='#') Menu
+                    .header__menu-sub
+                        a(href='robotics.html').active Sub menu
+                        a(href='security.html') Security Service
+                .header__menu-item
+                    a(href='about.html') ABOUT
+                .header__menu-item
+                    a(href='careers.html') CAREERS
+                .header__menu-item
+                    a(href='#') LEARN
+                    .header__menu-sub
+                        a(href='#') Sub menu
+                        a(href='#') Security Service
+                .header__menu-item
+                    a(href='contacts.html') CONTACT
+            a(href='#').header__button.btn Contact us
+            .header__toggler.icon-menu

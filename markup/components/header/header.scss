@@ -1,0 +1,237 @@
+.header {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 18px rgba(#000, .05);
+    z-index: 10000;
+    &__inner {
+        @include wrapper();
+        align-items: center;
+        flex-wrap: nowrap;
+        height: 80px;
+        padding-top: em(10);
+        @include max-screen($grid-sl) {
+            height: 60px;
+            padding-top: 0;
+        }
+    }
+    &__logo {
+        img {
+            display: block;
+        }
+        @include max-screen($grid-sl) {
+            flex-grow: 1;
+            img {
+                width: 100px;
+            }
+        }
+    }
+    &__button {
+        white-space: nowrap;
+        @include max-screen($grid-sl) {
+            color: $orange;
+            background-color: transparent;
+            border: 1px solid $orange;
+        }
+        @include max-screen($grid-sm) {
+            font-size: 10px;
+            padding: 0 10px;
+            height: 22px;
+        }
+    }
+    &__toggler {
+        color: $orange;
+        margin-left: 15px;
+        font-size: em(26);
+        display: none;
+        @include max-screen($grid-sl) {
+            display: block;
+        }
+    }
+    &__menu {
+        flex-grow: 1;
+        align-self: flex-end;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 em(40);
+        position: relative;
+        &-close {
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: $orange;
+            font-size: em(24);
+            @include max-screen($grid-sl) {
+                display: block;
+            }
+        }
+        
+        @include max-screen($grid-sl) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 10001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: auto;
+            display: none;
+            padding-top: 20vh;
+            padding-bottom: 20px;
+            &.header__menu--active {
+                display: block;
+            }
+        }
+        &-item {
+            padding-left: 20px;
+            padding-right: 20px;
+            position: relative;
+            padding-bottom: 20px;
+            padding-top: 10px;
+            border-bottom: 7px solid transparent;
+            &.active {
+                border-bottom: 7px solid $orange;
+                & > a {
+                    color: $orange;
+                }
+            }
+            // &:last-child{
+            //     padding-right: 0;
+            // }
+            a{
+                display: inline-block;
+                width: 100%;
+            }
+            @include min-screen($grid-sl) {
+                display: inline-block;
+                width: auto;
+            }
+            @include max-screen($grid-sl) {
+                margin-left: 0;
+                padding: 10px 25px;
+                border-bottom: 0!important;
+                border-left: 7px solid transparent;
+                transition: .2s;
+                &.header__menu-item--arrow {
+                    & > a:before {
+                        content: '\e93a';
+                        font-family: Linearicons;
+                        position: absolute;
+                        top: 50%;
+                        right: -2em;
+                        color: $orange;
+                        transform: translateY(-50%);
+                    }
+                }
+                &.active {
+                    border-left: 7px solid $orange;
+                }
+                &.hover {
+                    &.header__menu-item--arrow {
+                        // & > a:before {
+                        //     content: '\e939';
+                        // }
+                    }
+                    .header__menu-sub {
+                        display: flex;
+                    }
+                }
+            }
+            &:hover {
+                @include min-screen($grid-sl) {
+                    .header__menu-sub {
+                        transform: translateX(-50%) translateY(0);
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+        &-sub {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-5px);
+            background-color: #b2cdda;
+            padding:  em(10) em(15);
+            box-shadow: 0 2px 12px rgba(#000, .1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            visibility: hidden;
+            opacity: 0;
+            transition: .2s;
+            z-index: 5;
+
+            margin-top: 7px;
+            @include max-screen($grid-sl) {
+                position: static;
+                // transform: none;
+                visibility: visible;
+                opacity: 1;
+                // display: none;
+                display: flex;
+                box-shadow: none;
+                background-color: transparent;
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            a {
+                white-space: nowrap;
+                text-transform: none!important;
+                text-align: center;
+                width: 100%;
+                color: $orange!important;
+                border-bottom: 1px solid #fff;
+                padding: 5px 0;
+                &.active {
+                    font-weight: 700;
+                }
+                &:last-child {
+                    border-bottom: 0;
+                }
+                @include max-screen($grid-sl) {
+                    width: auto;
+                    font-weight: 300 !important;
+                    &.active {
+                        font-weight: 700 !important;
+                    }
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        a {
+            color: $orange;
+            font-size: em(12);
+            font-weight: 400;
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            @include max-screen($grid-sl) {
+                color: $orange;
+                font-size: em(14);
+                font-weight: 600;
+                letter-spacing: -0.07px;
+                line-height: 2;
+                text-transform: uppercase;
+            }
+            &:hover {
+                color: $orange;
+            }
+            &:hover, &.active {
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

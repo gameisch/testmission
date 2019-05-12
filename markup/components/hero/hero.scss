@@ -1,0 +1,178 @@
+.hero {
+    overflow: hidden;
+    position: relative;
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        transition: .3s;
+        @include min-screen($grid-ls + 65px) {
+            height:calc(100vh - 60px);
+        }
+        @include max-screen(1366px) {
+            cursor: pointer;
+        }
+        @include max-screen($grid-sl) {
+            flex-direction: column;
+            height: calc(100vh - 60px);
+            z-index: 1;
+        }
+        &:hover {
+            .hero-item {
+                &:nth-child(1) {
+                    transform: translateX(-100%);
+                    opacity: .1;
+                    @include max-screen($grid-sl) {
+                        transform: translateY(-100%);
+                    }
+                }
+                &:nth-child(3) {
+                    transform: translateX(100%);
+                    opacity: .1;
+                    @include max-screen($grid-sl) {
+                        transform: translateY(100%);
+                    }
+                }
+            }
+            .hero-item--hidden {
+                visibility: visible;
+            }
+        }
+    }
+    &__down {
+        position: absolute;
+        text-decoration: none!important;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: $black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+        transition: all .2s;
+        &-text {
+            color: $black;
+            font-family: $dpb;
+            font-size: em(16);
+            text-transform: uppercase;
+            line-height: 20px;
+            /* identical to box height */
+            letter-spacing: 0.02em;
+            @include max-screen($grid-sl) {
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+        span {
+            font-size: 1.3em;
+            margin-top: 10px;
+            transition: ease .2s;
+        }
+        &:hover{
+            opacity: .7;
+            span{
+                transform: translateY(7px);
+            }
+        }
+    }
+}
+
+.hero-item {
+    width: 100%;
+    background-color: $orange;
+    padding-top: 50%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    transition: .5s;
+    z-index: 2;
+    &:first-child{
+        position: absolute;
+        display: none;
+    }
+    @include min-screen($grid-ls + 65px){
+        padding-top: 0;
+    }
+    @include max-screen($grid-sl) {
+        width: 100%;
+    }
+    &--hidden {
+        visibility: hidden;
+        position: absolute;
+        background-color: $white;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        .hero-item__content{
+            position: relative;
+            color:$black;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            font-size: em(20);
+            line-height: 2;
+            span{
+                color:$orange;
+            }
+        }
+        @include max-screen($grid-sl) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: none;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            .hero-item__content {
+                height: 100%;
+            }
+        }
+    }
+    @include max-screen($grid-sl) {
+        padding-top: 0;
+    }
+    &__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        font-size: em(84);
+        font-weight: 300;
+        padding: 5%;
+        box-sizing: border-box;
+        line-height: 54px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        @include min-screen($grid-ls + 65px) {
+            height:calc(100vh - 60px);
+        }
+        @include max-screen($grid-ls + 65px){
+            font-size: 46px;
+        }
+        @include max-screen($grid-sl) {
+            position: relative;
+            height: calc(50vh - 30px);
+        }
+    }
+}

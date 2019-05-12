@@ -1,0 +1,24 @@
+<svg id="SVGDoc" width="2446" height="817" xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 2446 817">
+    <defs>
+        <path d="M1892.64297,1447.93573c-1076.13394,340.88916 -681.61483,-722.21533 -2469.90591,-768.54999"
+              id="Path-0"/>
+        <path d="M1867.74227,1237.54292c-64.96581,10.25677 -138.81824,28.77222 -225.68671,56.9545c-211.20546,68.50524 -544.86397,205.49668 -916.0674,159.84555c-371.20325,-45.65113 -803.66138,-194.5739 -905.04895,-214.05983c-68.88574,-15.12823 -143.70874,-17.39272 -436.70459,-63.72118"
+              id="Path-1"/>
+    </defs>
+    <desc>Generated with Avocode.</desc>
+    <g transform="matrix(1,0,0,1,578,-699)">
+        <g>
+            <title>Path 233</title>
+            <use xlink:href="#Path-0" fill-opacity="0" fill="#ffffff" stroke-dashoffset="0" stroke-linejoin="miter"
+                 stroke-linecap="butt" stroke-opacity="1" stroke="#0084bf" stroke-miterlimit="50"
+                 stroke-width="1.017699956893921"/>
+        </g>
+        <g opacity="0.6">
+            <title>Path 235</title>
+            <use xlink:href="#Path-1" fill-opacity="0" fill="#ffffff" stroke-dashoffset="0" stroke-linejoin="miter"
+                 stroke-linecap="butt" stroke-opacity="1" stroke="#e2988a" stroke-miterlimit="50"
+                 stroke-width="1.017699956893921"/>
+        </g>
+    </g>
+</svg>

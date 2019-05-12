@@ -1,0 +1,41 @@
+$default-font-size: 16;
+
+$grid-lm: 1140px;
+$grid-ls: 960px;
+$grid-sl: 768px;
+$grid-sm: 480px;
+$grid-s: 320px;
+
+$white: #fff;
+$black: #222222;
+$light: #f7f4fa;
+$orange: #ec7831;
+$dark: #1c1c1c;
+
+$dpm: 'DIN Pro Medium';
+$dpc: 'DIN Pro Cond';
+$dpl: 'DIN Pro Light';
+$dp: 'DIN Pro';
+$dpb: 'DIN Pro Bold';
+
+.btn, .gform_button.button, .gform_button {
+    background-color: $orange;
+    color: #fff;
+    font-size: 12px!important;
+    height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 0 em(25, 12);
+    text-decoration: none;
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    &:hover {
+        background-color: lighten($orange, 10);
+    }
+}
+
+

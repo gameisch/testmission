@@ -1,0 +1,30 @@
+doctype html
+html(class="no-js", lang="en")
+
+    include ../components/head/head
+    include ../components/header/header
+    include ../components/hero/hero
+    include ../components/intro/intro
+    include ../components/diff/diff
+    include ../components/request/request
+    include ../components/contacts/contacts
+
+    head
+        +head(head.defaults)
+    body
+        |%=symbols=%
+
+        .-content-
+            +header
+            +hero
+            +intro('We’re building our vision for the workplace of the future.')
+            +diff
+            +request
+            +contacts
+
+
+        script(src='%=static=%js/separate-js/svg4everybody.min.js')
+        script svg4everybody();
+
+        script(src='%=static=%js/separate-js/jquery-3.2.1.min.js')
+        script(src='%=static=%js/main%=hash=%%=min=%.js')

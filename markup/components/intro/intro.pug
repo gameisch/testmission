@@ -1,0 +1,6 @@
+mixin intro(title, button, data)
+    section.intro.intro--overlay(class= data ? 'intro--' + data : '')(style='background-image:url(%=static=%img/content/bg.png)')
+        .intro__inner
+            h2.h2.intro__text #{title}
+        if button
+            a(href='#').intro__button.btn #{button}
