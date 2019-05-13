@@ -1,0 +1,196 @@
+.sections{
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: em(80) 0;
+    position: relative;
+    z-index: 1;
+    @include max-screen($grid-sl){
+        padding: em(60) 0;
+    }
+    &__inner {
+        @include wrapper();
+        justify-content: center;
+    }
+    &__container{
+        max-width: $grid-ls;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    &__item{
+        width: calc(50% - 2px);
+        background-color:$white;
+        padding: em(50) em(60);
+        font-family: $dpl;
+        font-size:em(18);
+        margin:1px;
+        @include max-screen($grid-sl){
+            padding: em(20) em(30);
+        }
+        @include max-screen($grid-sm){
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    &__icon{
+        width: 60px;
+        height: 60px;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0 0 25px;
+    }
+    &__title{
+        color:$orange;
+        text-transform: uppercase;
+        font-size: em(12);
+        font-family: $dpb;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        @include max-screen($grid-sl){
+            line-height: 1.5;
+        }
+        & + .sections__text{
+            padding-top: 15px;
+        }
+    }
+    &__text{
+        font-family: $dp;
+        font-size: em(24);
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        @include max-screen($grid-sl){
+            font-size: em(18);
+        }
+    }
+    &--flex{
+        background-color: $light;
+        padding-top: 0;
+        .sections__container{
+            background-color: $light;
+            margin-top:-90px;
+            align-items: stretch;
+        }
+    }
+    &--col{
+        background-color: $light;
+        padding: em(120) 0;
+        @include max-screen($grid-sl){
+            padding: em(60) 0;
+        }
+        .sections__title{
+            position: relative;
+            font-family: $dpl;
+            width: 100%;
+            text-align:center;
+            margin:0;
+            padding-bottom: 30px;
+            text-transform: none;
+            font-size:em(40);
+            color:$black;
+            @include max-screen($grid-sl){
+                font-size:em(32);
+            }
+        }
+        .sections__container{
+            max-width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            .sections__item{
+                width: calc(33.33333% - 2px);
+                background-color:transparent;
+                padding: em(30) em(25);
+                align-items: flex-start;
+                @include every(2){
+                    padding-left: 0;
+                    padding-right: 35px
+                }
+                @include every(4){
+                    padding-right: 0;
+                    padding-left: 35px;
+                }
+                @include max-screen($grid-sl){
+                    width: 48.8888%;
+                    @include every(2){
+                        padding: em(30) em(25);
+                    }
+                    @include every(4){
+                        padding: em(30) em(25);
+                    }
+                }
+                @include max-screen($grid-sm + 100px){
+                    width: 100%;
+                }
+                @include max-screen($grid-sm){
+                    padding: em(20) 0;
+                    @include every(2){
+                        padding: em(20) 0;
+                    }
+                    @include every(4){
+                        padding: em(20) 0;
+                    }
+                }
+                .sections__title{
+                    color:$black;
+                    text-transform: none;
+                    font-size: 20px;
+                    text-align: left;
+                    font-family: $dpb;
+                    line-height: 1;
+                    &:after{
+                        display: inline-block;
+                        position: absolute;
+                        content:'';
+                        height:2px;
+                        width: 30px;
+                        bottom:0;
+                        left:0;
+                        background-color: $orange;
+                    }
+                }
+                .sections__text{
+                    font-family: $rs;
+                    font-size: 16px;
+                    line-height: 1.8;
+                    color:$dark-grey;
+                }
+            }
+        }
+    }
+    &--text{
+        .sections__container{
+            padding: 0 em(60);
+            @include max-screen($grid-sm){
+                padding: 0;
+            }
+            
+        }
+        .sections__title{
+            font-family: $dpl;
+            width: 100%;
+            text-align:left;
+            margin:0;
+            margin-bottom: 15px;
+            text-transform: none;
+            font-size:em(48);
+            letter-spacing: -0.02em;
+            color:$black;
+            @include max-screen($grid-sl){
+                font-size:em(32);
+            }
+        }
+        .sections__text{
+            padding:0;
+            margin-top:15px;
+            font-family: $rs;
+            font-size: em(16);
+            line-height: 1.9;
+            color:$dark-grey;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

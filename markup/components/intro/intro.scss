@@ -1,13 +1,14 @@
 .intro {
     padding: em(110) 0;
-    background-size: cover;
-    background-position: 50% 0;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
-    height: 345px;
+    min-height: 645px;
     @include max-screen($grid-sl) {
-        max-height: 300px;
+        min-height: 400px;
     }
     &--overlay{
         &:before {

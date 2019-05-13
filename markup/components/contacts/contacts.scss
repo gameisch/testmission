@@ -1,66 +1,91 @@
 .contacts {
-    padding: em(90) 0;
-    padding-bottom: 60px;
-    .gform_heading {
-        color: $black;
-        font-family: $dp;
-        font-style: normal!important;
-        font-size: em(32);
-        font-weight: 300!important;
-        letter-spacing: -0.16px;
-        line-height: 1.31;
-        margin-bottom: 40px;
-        text-align: center;
-        span{
-            margin:0!important;
-            font-style: normal!important;
-        }
+    padding: em(100) 0;
+    position: relative;
+    background-color: $dark;
+    z-index: 1;
+    @include max-screen($grid-sl){
+        padding: em(60) 0;
     }
     &__inner {
         @include wrapper();
         justify-content: center;
+    }
+    &__title{
+        position: relative;
+        font-family: $dp;
+        width: 100%;
+        text-align:center;
+        margin:0;
+        padding-bottom: 60px;
+        text-transform: none;
+        font-size:em(40);
+        letter-spacing: -0.02em;
+        color:$white;
+        @include max-screen($grid-sl){
+            font-size:em(32);
+            padding-bottom: 40px;
+        }
+        @include max-screen($grid-sm){
+            padding-bottom: 20px;
+        }
     }
     &__form {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
         font-size: 16px;
-        width: 590px;
+        width: 100%;
+        max-width: $grid-sl;
         margin: 0 auto!important;
-        max-width: 100%!important;
+        padding: 0 em(60);
+        @include max-screen($grid-sl + 100px){
+            max-width: $grid-sl - 100px;
+        }
         @include max-screen($grid-sl) {
             justify-content: space-between;
+            padding-left: 55px;
         }
-        
+        @include max-screen($grid-sm) {
+            padding-right: 0;
+        }
         input, textarea {
             appearance: none;
             border-radius: 0;
             display: block;
             width: 100%;
-            border: 1px solid #ccc9c4;
-            background-color: #fff;
-            height: 44px;
-            line-height: normal;
-            color: $black;
-            font-size: em(16);
+            border:none;
+            padding-left:0;
+            border-bottom: 2px solid rgba($white, .1);
+            background-color: transparent;
+            height: auto;
+            line-height: 1.5;
+            color: rgba($white, .65);
+            font-family: $rs;
+            font-size: em(24);
             font-weight: 400;
-            padding: 0 20px!important;
+            letter-spacing: -0.01em;
+            padding: 25px 0!important;
+            transition:ease .2s;
+            @include max-screen($grid-sl) {
+                font-size: em(18);
+                padding: 20px 0!important;
+                line-height: 1.2;
+            }
             &.invalid {
                 border-color: #f20;
             }
             &:focus{
-                color:$dark;
+                color:$white;
             }
-            &.wpcf7-not-valid{
+            &.incomplete{
                 border-color: #f20;
-                & + .wpcf7-not-valid-tip{
-                    display: none;
-                }
+            }
+            &.complete{
+                border-color: greenyellow;
             }
         }
         textarea {
-            height: 150px;
-            padding: 20px!important;
+            height: 140px;
         }
         input:not([value=""]):not(:focus):invalid  {
             border-color: #f20;
@@ -70,73 +95,111 @@
             &.right {
                 text-align: right;
             }
-            color: $dark;
+            &.left {
+                text-align: left;
+            }
+            color:rgba($white, .2);
             font-size: em(16);
             font-weight: 300;
             font-style: italic;
             letter-spacing: -0.08px;
             line-height: 1.5;
+            margin-bottom: 30px;
         }
-        input[type='submit']{
+        button[type='submit']{
             @extend .btn;
-            height: 40px;
+            width:100%;
+            background-color: $white;
+            color:$orange;
+            &:hover{
+                color:$white;
+            }
+            @include max-screen($grid-sl) {
+                width: auto;
+            }
+            @include max-screen($grid-sm) {
+                font-size: 10px;
+                color: $white;
+                background-color: transparent;
+                border: 1px solid $white;
+                padding: 0 10px;
+                height: 22px;
+                width: auto;
+            }
         }
     }
-    &__bottom {
-        background-color: #ecf6fb;
-        padding: em(50) 25px;
-        margin-top:35px;
-    }
-    &__info {
-        width: 570px;
-        margin: 0 auto;
-        max-width: 100%;
+    ol{
+        margin: 0;
+        list-style-type: none;
         display: flex;
-        justify-content: space-between;
-        @include max-screen($grid-sl) {
-            flex-wrap: wrap;
-        }
-    }
-    &__i {
-        &-col {
-            width: auto;
+        flex-direction: column;
+        justify-content: center;
+        padding:0;
+        li{
+            counter-increment: section;
+            position: relative;
+            // padding-left: 50px;
+            margin: 30px 0;
             @include max-screen($grid-sl) {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 30px;
-                &:last-child {
-                    margin-bottom: 0;
-                }
+                margin: 20px 0;
             }
-            div {
-                padding-right: 1em;
-            }
-        }
-        &-title {
-            color: $black;
-            font-size: em(14);
-            font-weight: 600;
-            letter-spacing: -0.07px;
-            line-height: 1.43;
-            @include max-screen($grid-sl) {
-                font-size: 16px;
-            }
-        }
-        &-content {
-            color: $black;
-            font-size: 16px;
-            font-weight: 300;
-            line-height: 1.5;
-            a {
+            &:before{
+                content: "0" counters(section, ".");
                 color: $orange;
-                font-size: em(16);
-                text-decoration: none;
-                display: block;
-                &:hover {
-                    text-decoration: underline;
+                font-family: $rs;
+                font-size: em(20);
+                width: 64px;
+                height:64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 50%;
+                border: 1px solid rgba($white, .2);
+                position: absolute;
+                top: 13px;
+                padding: 20px;
+                left: -85px;
+                transition:ease .2s;
+                transform: translateY(-50%);
+                @include max-screen($grid-sl) {
+                    width: 44px;
+                    height:44px;
+                    font-size: em(16);
+                    left: -55px;
                 }
+            }
+            &:hover{
+                &:before{
+                    background-color: rgba($light, .15);
+                }
+                input, textarea{
+                    border-bottom: 2px solid rgba($light, .9);
+                }
+
             }
         }
     }
-    
+}
+.modal{
+    &__title{
+        color:$white;
+        text-transform: none;
+        font-size: em(16);
+        text-align: left;
+        font-family: $dpb;
+        letter-spacing: -0.01em;
+        line-height: 1.7;
+        margin-bottom: 10px;
+    }
+    &__field--s{
+        width:100%;
+        color:rgba($white, .2);
+    }
+    sup{
+        font-size:em(16);
+        color:$orange;
+    }
 }

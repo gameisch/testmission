@@ -14,9 +14,9 @@
         @include max-screen(1366px) {
             cursor: pointer;
         }
-        @include max-screen($grid-sl) {
+        @include max-screen($grid-ls + 65px) {
             flex-direction: column;
-            height: calc(100vh - 60px);
+            height: calc(85vh - 60px);
             z-index: 1;
         }
         &:hover {
@@ -44,42 +44,68 @@
     &__down {
         position: absolute;
         text-decoration: none!important;
-        bottom: 35px;
-        left: 50%;
-        transform: translateX(-50%);
+        
+        top: 65%;
+        transform: translateY(-50%);
+        left:0;
+        right: 0;
         color: $black;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
         z-index: 5;
         text-align: center;
-        width: 100%;
+        width: auto;
+        margin:0 auto;
         cursor: pointer;
         transition: all .2s;
+        @include max-screen($grid-sl + 65px) {
+            top: 75%;
+        }
+        @include max-screen($grid-sm) {
+            top: 85%;
+        }
         &-text {
             color: $black;
             font-family: $dpb;
             font-size: em(16);
             text-transform: uppercase;
             line-height: 20px;
-            /* identical to box height */
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
             letter-spacing: 0.02em;
-            @include max-screen($grid-sl) {
-                font-weight: bold;
-                font-size: 14px;
+            transition: all .2s;
+            position: relative;
+            &::before{
+                display: inline-block;
+                position: absolute;
+                border-radius: 25px;
+                left:6px;
+                top:50%;
+                z-index: -1;
+                content: '';
+                padding: 25px;
+                width: auto;
+                background-color: $light;
+                transition: ease .2s;
+                transform: translateY(-50%);
             }
         }
-        span {
-            font-size: 1.3em;
-            margin-top: 10px;
-            transition: ease .2s;
+        i.fa{
+            position: relative;
+            font-weight: 400;
+            color:$orange;
+            display: inline-block;
+            padding-right: 25px;
         }
         &:hover{
-            opacity: .7;
-            span{
-                transform: translateY(7px);
-            }
+            opacity: .8;
+            .hero__down-text:before{
+                padding-right:calc(100% - 20px);
+            } 
         }
     }
 }
@@ -105,44 +131,7 @@
     @include max-screen($grid-sl) {
         width: 100%;
     }
-    &--hidden {
-        visibility: hidden;
-        position: absolute;
-        background-color: $white;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        top: 0;
-        width: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        .hero-item__content{
-            position: relative;
-            color:$black;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            font-size: em(20);
-            line-height: 2;
-            span{
-                color:$orange;
-            }
-        }
-        @include max-screen($grid-sl) {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: none;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            .hero-item__content {
-                height: 100%;
-            }
-        }
-    }
+    
     @include max-screen($grid-sl) {
         padding-top: 0;
     }
@@ -157,7 +146,7 @@
         align-items: center;
         justify-content: center;
         color: $white;
-        font-size: em(84);
+        font-size: em(46);
         font-weight: 300;
         padding: 5%;
         box-sizing: border-box;
@@ -166,13 +155,63 @@
         letter-spacing: -0.02em;
         @include min-screen($grid-ls + 65px) {
             height:calc(100vh - 60px);
-        }
-        @include max-screen($grid-ls + 65px){
             font-size: 46px;
         }
         @include max-screen($grid-sl) {
             position: relative;
-            height: calc(50vh - 30px);
+            height: calc(76vh - 30px);
+            line-height: 1.5;
+            font-size: 36px;
+        }
+    }
+    &--hidden {
+        visibility: hidden;
+        position: absolute;
+        background-color: $white;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        .hero-item__content{
+            position: relative;
+            color:$black;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            font-size: em(20);
+            line-height: 2;
+            div{
+                display: inline-block;
+                span{
+                    color:$orange;
+                    font-weight: 600;
+                    margin:0 5px;
+                }
+            }
+            @include min-screen($grid-lm + 65px) {
+                height:calc(100vh - 60px);
+            }
+            @include max-screen($grid-lm + 65px) {
+                height:calc(75vh - 60px);
+                position: absolute;
+            }
+            
+        }
+        @include max-screen($grid-sl + 65px) {
+            position: absolute!important;
+            top: 0;
+            left: 0;
+            transform: none;
+            width: 100%;
+            // height: 100%;
+            z-index: -1;
         }
     }
 }

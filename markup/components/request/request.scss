@@ -1,10 +1,8 @@
 .request {
-    background-image: url(%=static=%content/request-bg.jpg);
     -webkit-background-size: cover;
     background-size: cover;
     background-position: 50% 50%;
     padding: em(64) 0;
-    box-shadow: 0px -10px 19px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
     &__inner {

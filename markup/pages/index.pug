@@ -5,8 +5,9 @@ html(class="no-js", lang="en")
     include ../components/header/header
     include ../components/hero/hero
     include ../components/intro/intro
-    include ../components/diff/diff
-    include ../components/request/request
+    include ../components/section/section
+    //- include ../components/diff/diff
+    //- include ../components/request/request
     include ../components/contacts/contacts
 
     head
@@ -17,9 +18,12 @@ html(class="no-js", lang="en")
         .-content-
             +header
             +hero
-            +intro('We’re building our vision for the workplace of the future.')
-            +diff
-            +request
+            +intro('Прокачиваем мир!')
+            +sections('flex')
+            +sections('text')
+            +sections('col')
+            //- +diff
+            //- +request
             +contacts
 
 

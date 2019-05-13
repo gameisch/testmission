@@ -11,13 +11,16 @@
         align-items: center;
         flex-wrap: nowrap;
         height: 80px;
-        padding-top: em(10);
         @include max-screen($grid-sl) {
             height: 60px;
             padding-top: 0;
         }
     }
     &__logo {
+        color:$orange;
+        text-decoration: none;
+        font-size: em(16);
+        font-weight: bold;
         img {
             display: block;
         }
@@ -30,7 +33,8 @@
     }
     &__button {
         white-space: nowrap;
-        @include max-screen($grid-sl) {
+        font-family: $rs;
+        @include max-screen($grid-ls) {
             color: $orange;
             background-color: transparent;
             border: 1px solid $orange;
@@ -69,7 +73,9 @@
                 display: block;
             }
         }
-        
+        @include max-screen($grid-ls) {
+            padding: 0 em(10);
+        }
         @include max-screen($grid-sl) {
             position: fixed;
             top: 0;
@@ -93,6 +99,7 @@
             padding-left: 20px;
             padding-right: 20px;
             position: relative;
+            font-size:em(16);
             padding-bottom: 20px;
             padding-top: 10px;
             border-bottom: 7px solid transparent;
@@ -102,12 +109,13 @@
                     color: $orange;
                 }
             }
-            // &:last-child{
-            //     padding-right: 0;
-            // }
             a{
                 display: inline-block;
                 width: 100%;
+            }
+            @include min-screen($grid-ls) {
+                padding-left: 10px;
+                padding-right: 10px;
             }
             @include min-screen($grid-sl) {
                 display: inline-block;
@@ -159,7 +167,7 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-5px);
-            background-color: #b2cdda;
+            background-color: $light;
             padding:  em(10) em(15);
             box-shadow: 0 2px 12px rgba(#000, .1);
             display: flex;
@@ -211,7 +219,7 @@
         }
         a {
             color: $orange;
-            font-size: em(12);
+            font-size: em(14);
             font-weight: 400;
             text-transform: uppercase;
             text-decoration: none;

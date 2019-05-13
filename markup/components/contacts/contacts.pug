@@ -1,35 +1,27 @@
 mixin contacts(data)
-    section.contacts
+    section.contacts#next
         .contacts__inner
+            .contacts__title Теперь расскажите о себе
             form.contacts__form
-                .modal__title Complete the form to start your download.
-                .modal__field.modal__field--small
-                    input(type='text', placeholder='First Name*', required)
-                .modal__field.modal__field--small
-                    input(type='text', placeholder='Last Name*', required)
-                .modal__field
-                    input(type='email', placeholder='Email*', required)
-                .modal__field
-                    input(type='text', placeholder='Company/Organization')
-                .modal__field
-                    input(type='text', placeholder='Job Title')
-                .modal__field
-                    textarea(placeholder='Comments')
-                .modal__field.modal__field--s
-                    button.btn(type='submit') SUBMIT
+                ol.modal
+                    li
+                        .modal__title Фамилия и имя
+                        .modal__field
+                            input(type='text', placeholder='Сидоров Александр')
+                    li
+                        .modal__title Электронная почта
+                            sup *
+                        .modal__field
+                            input(type='email', placeholder='sidorov@yandex.ru', required)
+                    li
+                        .modal__title Телефон
+                        .modal__field
+                            input(type='tel', placeholder='+7 (999) 328-14-20')
+                    li
+                        .modal__title Какой деятельностью, не связанной с текущими проектами, вы бы хотели заниматься в рабочее время?
+                        .modal__field
+                            textarea(placeholder='Свой проект по созданию универсальной инфраструктуры строительства')
                 .modal__field.modal__field--s.modal__field--vc
-                    span.right *Required field.
-        .contacts__bottom
-            .contacts__info
-                .contacts__i-col
-                    .contacts__i-title Cobalt Robotics
-                    .contacts__i-content
-                        div 2121 South El Camino Real, Suite C110
-                        div San Mateo, California 94403
-                        div United States
-                .contacts__i-col
-                    .contacts__i-title Email
-                    .contacts__i-content
-                        a(href='#') sales@cobaltrobotics.com
-                        a(href='#') media@cobaltrobotics.com
-                        a(href='#') info@cobaltrobotics.com
+                    span.left *Обязательные поля.
+                .modal__field.modal__field--s
+                    button.btn(type='submit') Отправить
